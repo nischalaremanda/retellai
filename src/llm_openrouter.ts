@@ -84,14 +84,14 @@ export class DemoLlmClient {
 
     try {
       const events = await this.client.chat.completions.create({
-        model: "mistralai/mixtral-8x7b-instruct",
+        model: "neversleep/noromaid-mixtral-8x7b-instruct",
         messages: requestMessages,
         stream: true,
+        top_p: 0.99,
         temperature: 0.9,
         frequency_penalty: 0.7,
-        max_tokens: 200,
-        top_p: 1,
         presence_penalty: 0.7,
+        max_tokens:300
       });
 
       for await (const event of events) {
